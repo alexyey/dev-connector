@@ -31,7 +31,7 @@ router.post(
             .isEmail(),
         check(
             'password',
-            'Please is required'
+            'Please include the required password'
         ).exists()
     ],
     async (req, res) => {

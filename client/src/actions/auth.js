@@ -6,12 +6,14 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAIL
+    LOGIN_FAIL,
+    LOGOUT
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
 // Load User
 export const loadUser = () => async dispatch => {
+
     if(localStorage.token) {
         setAuthToken(localStorage.token);
     }
@@ -23,6 +25,7 @@ export const loadUser = () => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         })
+
     } catch (err) {
         dispatch({
             type: AUTH_ERROR
@@ -97,4 +100,9 @@ export const login = ({ email, password }) => async dispatch => {
         });
     }
 
+}
+
+// Logout / Clear Profile
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT })
 }

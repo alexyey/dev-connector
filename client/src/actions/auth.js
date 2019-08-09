@@ -32,7 +32,7 @@ export const loadUser = () => async dispatch => {
             type: AUTH_ERROR
         })
     }
-}
+};
 
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {
@@ -40,7 +40,7 @@ export const register = ({ name, email, password }) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
 
     const body = JSON.stringify({ name, email, password})
 
@@ -66,7 +66,7 @@ export const register = ({ name, email, password }) => async dispatch => {
         });
     }
 
-}
+};
 
 // Login User
 export const login = ({ email, password }) => async dispatch => {
@@ -74,7 +74,7 @@ export const login = ({ email, password }) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
 
     const body = JSON.stringify({ email, password });
 
@@ -89,8 +89,6 @@ export const login = ({ email, password }) => async dispatch => {
 
         dispatch(loadUser())
     } catch (err) {
-
-        console.log(err);
 
         const errors = err.response.data.errors;
 

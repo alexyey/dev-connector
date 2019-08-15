@@ -37,7 +37,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 
         dispatch({
             type: GET_PROFILE,
-            payload: res.profile
+            payload: res.data
         });
 
         dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
@@ -73,7 +73,7 @@ export const addExperience = (formData, history) => async dispatch => {
 
         dispatch({
             type: UPDATE_PROFILE,
-            payload: res.profile
+            payload: res.data
         });
 
         dispatch(setAlert('Experience Added', 'success'));
@@ -81,6 +81,8 @@ export const addExperience = (formData, history) => async dispatch => {
          history.push('/dashboard');
 
     } catch (err) {
+
+        console.log(err);
 
         const errors = err.response.data.errors;
 
@@ -108,7 +110,7 @@ export const addEducation = (formData, history) => async dispatch => {
 
         dispatch({
             type: UPDATE_PROFILE,
-            payload: res.profile
+            payload: res.data
         });
 
         dispatch(setAlert('Education Added', 'success'));

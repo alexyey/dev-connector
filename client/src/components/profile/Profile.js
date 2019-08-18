@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import Spinner from '../layout/Spinner'
 import ProfileTop from './ProfileTop'
 import ProfileAbout from './ProfileAbout'
-import { getProfileById } from "../../actions/profile";
-import ProfileExperience from "./ProfileExperience";
-import ProfileEducation from "./ProfileEducation";
+import { getProfileById } from "../../actions/profile"
+import ProfileExperience from "./ProfileExperience"
+import ProfileGithub from './ProfileGithub'
+import ProfileEducation from "./ProfileEducation"
 
 const Profile = ({
     getProfileById,
@@ -59,6 +60,10 @@ const Profile = ({
                                     (<h4>No education credentials</h4>)
                             }
                         </div>
+
+                        {profile.githubusername && (
+                            <ProfileGithub username={profile.githubusername} />
+                        )}
                     </div>
                 </Fragment>
             )}
